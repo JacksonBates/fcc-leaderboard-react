@@ -1,21 +1,6 @@
 import React from 'react';
 
 export default class Table extends React.Component {
-  state = {
-    recent: []
-  };
-  componentDidMount() {
-    const url = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
-    fetch(url)
-      .then((response) => {
-        return response.json()
-      })
-      .then((data) => {
-        this.setState(() => ({
-          recent: data
-        }));
-      });
-  };
   render() {
     return (
       <div>
@@ -32,7 +17,7 @@ export default class Table extends React.Component {
             </tr>
           </thead>
           <tbody>
-          {this.state.recent.map((camper, index) => { 
+          {this.props.recent.map((camper, index) => { 
             return (
               <tr key={camper.username}>
                 <td>{index + 1}</td>
