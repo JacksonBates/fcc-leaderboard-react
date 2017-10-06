@@ -1,9 +1,10 @@
 import React from 'react';
 import Header from './Header';
-import Table from './Table';
+import TableHead from './TableHead';
 
 export default class LeaderboardApp extends React.Component {
   state = {
+    sortByRecent: true,
     recent: [],
     alltime: []
   };
@@ -18,12 +19,22 @@ export default class LeaderboardApp extends React.Component {
           recent: data
         }));
       });
+      const alltimeUrl = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
+      fetch(alltimeUrl)
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          this.setState(() => ({
+            alltime: data
+          }));
+        });
   };
   render() {
     return (
       <div>
         <Header />
-        <Table {...this.state} />
+        <TableHead {...this.state} />
       </div>
     )
   }
