@@ -8,6 +8,16 @@ export default class LeaderboardApp extends React.Component {
     recent: [],
     alltime: []
   };
+  handleRecent = () => {
+    if (!this.state.sortByRecent) {
+      this.setState(() => ({ sortByRecent: true }));
+    }
+  }
+  handleAlltime = () => {
+    if (this.state.sortByRecent) {
+      this.setState(() => ({ sortByRecent: false }));
+    }
+  }
   componentDidMount() {
     const recentUrl = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
     fetch(recentUrl)
@@ -34,7 +44,11 @@ export default class LeaderboardApp extends React.Component {
     return (
       <div>
         <Header />
-        <TableHead {...this.state} />
+        <TableHead 
+          {...this.state}
+          handleAlltime={this.handleAlltime}
+          handleRecent={this.handleRecent}
+        />
       </div>
     )
   }

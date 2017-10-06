@@ -2,25 +2,23 @@ import React from 'react';
 import TableBodyRecent from './TableBodyRecent';
 import TableBodyAlltime from './TableBodyAlltime';
 
-export default class Table extends React.Component {
-  render() {
-    return (
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Leaderboard</th>
-            </tr>
-            <tr>
-              <th>#</th>
-              <th>Camper</th>
-              <th>30 Days</th>
-              <th>All Time</th>
-            </tr>
-          </thead>
-          {(this.props.sortByRecent) ? <TableBodyRecent {...this.props} /> : <TableBodyAlltime {...this.props} />}
-        </table>
-      </div>
-    )
-  }
-}
+const TableHead = (props) => (
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Leaderboard</th>
+        </tr>
+        <tr>
+          <th>#</th>
+          <th>Camper</th>
+          <th><button onClick={props.handleRecent}>30 Days</button></th>
+          <th><button onClick={props.handleAlltime}>All Time</button></th>
+        </tr>
+      </thead>
+      {(props.sortByRecent) ? <TableBodyRecent {...props} /> : <TableBodyAlltime {...props} />}
+    </table>
+  </div>
+);
+
+export default TableHead;
