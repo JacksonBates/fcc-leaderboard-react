@@ -3,8 +3,8 @@ const FA = require('react-fontawesome');
 
 const Header = (props) => {
   return (
-    <div>
-      <h1>
+    <div className='header'>
+      <h1 className='header__title'>
         freeCodeCamp
         <FA 
           name="free-code-camp"

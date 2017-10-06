@@ -1,0 +1,13 @@
+.header {
+  background: $fcc-green;
+  color: white;
+  margin-bottom: $m-size;  
+  padding: $s-size 0;
+}
+
+.header__title {
+  font-family: $fcc-font;
+  font-size: $l-size;
+  margin: 0;
+  margin-left: 10px;
+}
