@@ -5,17 +5,26 @@ import TableHead from './TableHead';
 export default class LeaderboardApp extends React.Component {
   state = {
     sortByRecent: true,
+    data: [],
     recent: [],
     alltime: []
   };
   handleRecent = () => {
     if (!this.state.sortByRecent) {
-      this.setState(() => ({ sortByRecent: true }));
+      // this.setState(() => ({ sortByRecent: true }));
+      this.setState(() => ({ 
+        sortByRecent: true,
+        data: this.state.recent 
+      }));      
     }
   }
   handleAlltime = () => {
     if (this.state.sortByRecent) {
-      this.setState(() => ({ sortByRecent: false }));
+      // this.setState(() => ({ sortByRecent: true }));
+      this.setState(() => ({
+        sortByRecent: false,
+        data: this.state.alltime 
+      }));
     }
   }
   componentDidMount() {
@@ -26,7 +35,8 @@ export default class LeaderboardApp extends React.Component {
       })
       .then((data) => {
         this.setState(() => ({
-          recent: data
+          recent: data,
+          data
         }));
       });
       const alltimeUrl = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';

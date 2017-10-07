@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default class TableBodyAlltime extends React.Component {
+export default class TableBody extends React.Component {
   render() {
     return (
       <tbody>
-      {this.props.alltime.map((camper, index) => { 
+      {this.props.data.map((camper, index) => { 
         return (
           <tr key={camper.username}>
             <td>{index + 1}</td>
