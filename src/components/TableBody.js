@@ -7,18 +7,20 @@ export default class TableBody extends React.Component {
       {this.props.data.map((camper, index) => { 
         return (
           <tr key={camper.username}>
-            <td>{index + 1}</td>
-            <td>
+            <td className='table-container__text table-container__text--id'>{index + 1}</td>
+            <td className='table-container__text'>
               <img 
+                className='table-container__img'
                 src={camper.img} 
                 alt='{username} profile picture' 
                 height='40' 
                 width='40'
               />
-              {camper.username}
             </td>
-            <td>{camper.recent}</td>
-            <td>{camper.alltime}</td>
+            <td className='table-container__text'>{camper.username}
+            </td>
+            <td className='table-container__text table-container__text--center'>{camper.recent}</td>
+            <td className='table-container__text table-container__text--center'>{camper.alltime}</td>
           </tr>
         )}
       )}
