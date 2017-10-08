@@ -5,6 +5,7 @@
   "author": "jacksonbates <malgalin@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "webpack",
     "serve": "webpack-dev-server"
   },
   "dependencies": {
