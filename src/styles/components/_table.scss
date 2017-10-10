@@ -1,30 +1,27 @@
 .table-container {
   margin: 0 auto;
-  padding: 0 $m-size; 
-  table-layout: fixed;
-  width: 600px;
+  padding: 0 $s-size; 
+  max-width: 90%;
 }
 
 .table-container__title {
   background: $fcc-green;
   color: white;
-  font-size: $l-size;
+  font-size: $m-size;
   font-weight: 300;
-  padding: 0 $xl-size;
   text-align: centre;
   border-radius: 5px 5px 0 0;
 }
 
 .table-container__table {
   border-collapse: collapse;
-  padding: $m-size; 
 }
 
 .table-container__headings {
-  font-size: $l-size;
+  font-size: $s-size;
   color: black;
   margin: 0;
-  text-align: left;
+  // text-align: left;
 }
 
 .table-container__button {
@@ -37,7 +34,7 @@
 }
 
 .table-container__text {
-  font-size: $m-size;
+  font-size: $s-size;
   text-align: left;
 }
 
@@ -55,17 +52,31 @@
 }
 
 td:first-child {
-  width: 20px;  
+  width: 6%;  
 }
 
 td:nth-child(2) {
-  width: 50px;
+  width: 13%;
+  word-break: break-all;
 }
 
 td:nth-child(4),
 td:nth-child(5) {
-  width: 150px;
+  width: 35%;
 }
 
 tr:nth-child(even) {background-color: #f2f2f2}
 tr:nth-child(odd) {background-color: white}
+
+@media (min-width: $desktop-breakpoint) {
+  .table-container__title {
+    font-size: $l-size;
+  }
+
+  .table-container__headings {
+    font-size: $l-size;
+  }
+  .table-container__text {
+    font-size: $m-size;
+  }
+}
